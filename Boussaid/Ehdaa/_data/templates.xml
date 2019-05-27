@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+  <template type="admin" title="bm_ehdaa_edit" version_id="2010070" version_string="2.1.0"><![CDATA[<xf:if is="$ehdaa.isInsert()">
+	<xf:title>{{ phrase('ehdaaAdd:') }}</xf:title>
+<xf:else />
+	<xf:title>{{ phrase('ehdaaEdit:') }} {$ehdaa.ehdaa_from}</xf:title>
+</xf:if>
+
+<xf:pageaction if="$ehdaa.isUpdate()">
+	<xf:button href="{{ link('ehdaa-admin/delete', $ehdaa) }}" icon="delete" overlay="true" />
+</xf:pageaction>
+
+<xf:form action="{{ link('ehdaa-admin/save', $ehdaa) }}" ajax="true" class="block">
+	<div class="block-container">
+		<div class="block-body">
+
+			<xf:textboxrow name="ehdaa_from" value="{{ $ehdaa.exists() ? $ehdaa.ehdaa_from : '' }}"
+				maxlength="{{ max_length($ehdaa, 'ehdaa_from') }}"
+				label="{{ phrase('ehdaaFrom') }}" />
+			
+			<xf:editorrow name="ehdaa_message" value="{$ehdaa.ehdaa_message}"
+				rowtype=""
+				data-min-height="100"
+				placeholder="{{ phrase('ehdaaText...') }}"
+				label="{{ phrase('ehdaaText') }}"
+				removebuttons="{$disabledButtons}" />
+
+		</div>
+		<xf:submitrow sticky="true" icon="save" />
+	</div>
+</xf:form>]]></template>
+  <template type="admin" title="bm_ehdaa_list" version_id="2010070" version_string="2.1.0"><![CDATA[<xf:title>{{ phrase('ehdaat') }}</xf:title>
+
+<xf:if is="$ehdaat is not empty">
+	<xf:form action="{{ link('ehdaa-admin') }}" class="block" ajax="true">		
+	<div class="block-outer">
+			<xf:macro template="filter_macros" name="quick_filter" arg-key="ehdaa" arg-class="block-outer-opposite" />
+	</div>	
+		<div class="block-container">
+			<div class="block-body">
+				<xf:datalist data-xf-init="responsive-data-list">
+					<xf:datarow rowtype="header">
+						<xf:cell>{{ phrase('ehdaaFrom') }}</xf:cell>
+						<xf:cell>{{ phrase('ehdaaText') }}</xf:cell>
+						<xf:cell class="dataList-cell--min">&nbsp;</xf:cell>
+					</xf:datarow>
+					<xf:foreach loop="{$ehdaat}" value="$ehdaa">
+						<xf:datarow 
+									delete="{{ link('ehdaa-admin/delete', $ehdaa) }}" 
+									hash="{$ehdaat.ehdaa}"
+									href="{{ link('ehdaa-admin/edit', $ehdaa) }}">
+							<xf:cell href="{{ link('ehdaa-admin/edit', $ehdaa) }}" class="dataList-cell--min">
+								{$ehdaa.User.username}
+							</xf:cell>
+							<xf:cell href="{{ link('ehdaa-admin/edit', $ehdaa) }}">
+								{{ $ehdaa.ehdaa_message ? bb_code($ehdaa.ehdaa_message, 'ehdaa', $ehdaa.User) : '&nbsp;' }}
+							</xf:cell>
+						</xf:datarow>
+					</xf:foreach>
+				</xf:datalist>
+			</div>
+			<div class="block-footer">
+				<span class="block-footer-counter">{{ display_totals($ehdaat) }}</span>
+			</div>
+		</div>
+		<xf:pagenav page="{$pagee}" perpage="{$perPage}" total="{$total}"
+					link="ehdaa-admin" params="{$linkFilters}"
+					wrapperclass="block-outer block-outer--after" />
+	</xf:form>
+<xf:else />
+	<div class="blockMessage">{{ phrase('no_items_have_been_created_yet') }}</div>
+</xf:if>]]></template>
+  <template type="public" title="bm_ehdaa.less" version_id="2010070" version_string="2.1.0"><![CDATA[.ehdaCtrLeft 
+{
+	text-align: right;
+	max-width: 150px;
+    position: absolute;
+    right: 50px;
+}
+.ehdaa .carousel-item
+{
+	/*background-color: @xf-contentBg;*/
+	position: relative;
+	overflow: hidden;
+	padding: 7px 10px;
+	margin: auto;
+}
+
+.ehdaa .carousel-item .fa-gift
+{
+	position: absolute;
+	display: block;
+	top: 0;
+	right: 0;
+	width: 75px;
+	height: 75px;
+	color: @xf-textColorMuted;
+	background-color: rgba(233, 233, 233, 0.3);
+	border: 4px solid rgba(85, 158, 230, 0.1);
+	border-radius: 50% !important;
+	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+}
+
+.ehdaa .carousel-item .fa-gift:before
+{
+	position: absolute;
+	top: 60%;
+	right: 60%;
+	transform: rotate(-35deg);
+	-webkit-transform: rotate(-35deg);
+	-ms-transform: rotate(-35deg);
+}
+
+.ehdaa .carousel-item:before
+{
+	position: absolute;
+	display: block;
+	content: '';
+	left: 0;
+	top: 50%;
+	height: 100%;
+	width: 4px;
+	background-color: rgba(85, 158, 230, 0.1);
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+}
+
+.ehdaa .carousel-item:nth-child(2n+2):before
+{
+	background-color: #fc6e5e;
+}
+
+.ehdaa .contentRow
+{
+	align-items: center;
+}
+
+.ehdaa .contentRow:hover
+{
+	cursor: pointer;
+}
+
+.ehdaa .contentRow .ehdaaFrom
+{
+	color: #27ae60;
+	padding: 0 6px;
+}
+
+.ehdaa .contentRow .bbWrapper
+{
+	padding-right: 6px;
+}
+
+.ehdaa .contentRow .contentRow-minor
+{
+	/*** Fix for Arabic kofi font ***/
+	line-height: 1.85em;
+}
+
+.button.button--icon--ehdaa > .button-text::before, 
+a.button.button--icon--ehdaa > .button-text::before
+{
+	content: "@{fa-var-gift}";
+}]]></template>
+  <template type="public" title="bm_ehdaa_add" version_id="2010080" version_string="2.1.1"><![CDATA[<xf:if is="{{ $xf.visitor->hasPermission('ehdaa', 'viewEhdaa') }} && {{ $xf.visitor->hasPermission('ehdaa', 'addEhdaa') }}">	
+	<xf:title>{{ phrase('ehdaaAdd:') }}</xf:title>
+
+	<xf:form action="{{ link('ehdaa/save', $ehdaa) }}" ajax="true" class="block" data-force-flash-message="true">
+		<div class="block-container">
+			<div class="block-body">
+				<xf:textboxrow fa="fa-home" name="ehdaa_from" value="{$ehdaa.ehdaa_from}" rowtype="fullWidth noLabel" 
+							   placeholder="{{ phrase('ehdaaFrom...') }}"
+							   maxlength="{$xf.options.ehdaFromMaxLength}"
+							   label="{{ phrase('ehdaaFrom') }}" />					
+				<xf:editorrow name="ehdaa_message" value="{$ehdaa.ehdaa_message}"
+					rowtype="fullWidth noLabel mergePrev"
+					data-min-height="100"
+					placeholder="{{ phrase('ehdaaText...') }}"
+					maxlength="{$xf.options.ehdaMessageMaxLength}"
+					removebuttons="{$disabledButtons}" />
+			</div>
+			<xf:submitrow rowtype="simple" sticky="true" icon="save" />
+		</div>
+		<xf:redirect />
+	</xf:form>
+</xf:if>]]></template>
+  <template type="public" title="bm_ehdaa_index" version_id="2010080" version_string="2.1.1"><![CDATA[<xf:if is="{$ehdaat} is not empty && $xf.visitor->hasPermission('ehdaa', 'viewEhdaa')">	
+	<xf:js prod="xf/carousel-compiled.js" dev="vendor/lightslider/lightslider.js, xf/carousel.js" />
+	<xf:css src="carousel.less" />
+	<xf:css src="lightslider.less" />
+	<xf:css src="bm_ehdaa.less" />
+	<div class="carousel ehdaa">
+		<ul class="carousel-body carousel-body--show1" data-xf-init="carousel">
+			<xf:foreach loop="{$ehdaat}" value="$ehdaa">
+				<li>
+					<div class="carousel-item"><xf:fa icon="fa-gift" />
+						<div class="contentRow">
+							<xf:avatar user="$ehdaa.User" size="xxs" defaultname="{$fallbackName}" itemprop="image" />
+							<xf:if is="$ehdaa.ehdaa_from">
+								<span class="ehdaaFrom">{{ phrase('ehdaaFrom') }} {$ehdaa.ehdaa_from}:</span>
+							<xf:else />
+								<span class="ehdaaFrom">{$ehdaa.User.username}: </span>
+							</xf:if>
+							{{ $ehdaa.ehdaa_message ? bb_code($ehdaa.ehdaa_message, 'ehdaa', $ehdaa.User) : '&nbsp;' }} 
+							<xf:date time="$ehdaa.ehdaa_date" class="contentRow-minor" />
+							<xf:if contentcheck="true">
+							<span class="ehdaCtrLeft">
+								<xf:contentcheck>
+							<xf:if is="$ehdaa.canEdit()">
+								<a href="{{ link('ehdaa/edit', $ehdaa) }}" data-xf-init="tooltip" data-original-title="{{  phrase('edit')|for_attr }}" data-xf-click="overlay" data-cache="false">&nbsp;<xf:fa icon="fa-comment-edit" /></a>
+							</xf:if>
+							<xf:if is="$ehdaa.canDelete()">
+								<a href="{{ link('ehdaa/delete', $ehdaa) }}" data-xf-init="tooltip" data-original-title="{{  phrase('delete')|for_attr }}" data-xf-click="overlay" data-cache="false">&nbsp;<xf:fa icon="fa-trash" /></a>
+							</xf:if>
+								</xf:contentcheck>
+							</span>
+						</xf:if>
+						</div>
+					</div>
+				</li>
+			</xf:foreach>
+		</ul>
+	</div>
+</xf:if>]]></template>
+  <template type="public" title="ehdaa_edit" version_id="2010070" version_string="2.1.0"><![CDATA[<xf:if is="$ehdaa.isInsert()">
+	<xf:title>{{ phrase('ehdaaAdd:') }}</xf:title>
+<xf:else />
+	<xf:title>{{ phrase('ehdaaEdit:') }} {$ehdaa.ehdaa_from}</xf:title>
+</xf:if>
+
+<xf:pageaction if="$ehdaa.isUpdate()">
+	<xf:button href="{{ link('ehdaa/delete', $ehdaa) }}" icon="delete" overlay="true" />
+</xf:pageaction>
+
+<xf:form action="{{ link('ehdaa/save', $ehdaa) }}" ajax="true" class="block">
+	<div class="block-container">
+		<div class="block-body">
+
+			<xf:textboxrow name="ehdaa_from" value="{{ $ehdaa.exists() ? $ehdaa.ehdaa_from : '' }}"
+				maxlength="{{ max_length($ehdaa, 'ehdaa_from') }}"
+				label="{{ phrase('ehdaaFrom') }}" />
+			
+			<xf:editorrow name="ehdaa_message" value="{$ehdaa.ehdaa_message}"
+				rowtype=""
+				data-min-height="100"
+				placeholder="{{ phrase('ehdaaText...') }}"
+				label="{{ phrase('ehdaaText') }}"
+				removebuttons="{$disabledButtons}" />
+
+		</div>
+		<xf:submitrow sticky="true" icon="save" />
+	</div>
+</xf:form>]]></template>
+</templates>

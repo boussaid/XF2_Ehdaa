@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<admin_navigation>
+  <admin_navigation_entry navigation_id="ehdaaAdmin" parent_navigation_id="ehdaat" display_order="1" link="ehdaa-admin" icon="fa-gift" debug_only="0" development_only="0" hide_no_children="0"/>
+  <admin_navigation_entry navigation_id="ehdaaOptions" parent_navigation_id="ehdaat" display_order="2" link="options/groups/ehdaa/" icon="fa-gift" debug_only="0" development_only="0" hide_no_children="0"/>
+  <admin_navigation_entry navigation_id="ehdaat" display_order="250" link="ehdaa-admin" icon="fa-gift" debug_only="0" development_only="0" hide_no_children="1"/>
+</admin_navigation>

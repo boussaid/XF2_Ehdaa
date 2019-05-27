@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<permissions>
+  <permission permission_group_id="ehdaa" permission_id="addEhdaa" permission_type="flag" interface_group_id="ehdaaPermissions" display_order="10"/>
+  <permission permission_group_id="ehdaa" permission_id="basicText" permission_type="flag" interface_group_id="ehdaaPermissions" display_order="20"/>
+  <permission permission_group_id="ehdaa" permission_id="deleteAnyEhdaa" permission_type="flag" interface_group_id="ehdaaModerator" display_order="2"/>
+  <permission permission_group_id="ehdaa" permission_id="deleteOwnEhdaa" permission_type="flag" interface_group_id="ehdaaPermissions" display_order="12"/>
+  <permission permission_group_id="ehdaa" permission_id="editAnyEhdaa" permission_type="flag" interface_group_id="ehdaaModerator" display_order="1"/>
+  <permission permission_group_id="ehdaa" permission_id="editOwnEhdaa" permission_type="flag" interface_group_id="ehdaaPermissions" display_order="11"/>
+  <permission permission_group_id="ehdaa" permission_id="editOwnEhdaaTimeLimit" permission_type="integer" interface_group_id="ehdaaPermissions" display_order="13"/>
+  <permission permission_group_id="ehdaa" permission_id="extendedText" permission_type="flag" interface_group_id="ehdaaPermissions" display_order="30"/>
+  <permission permission_group_id="ehdaa" permission_id="maxSmilies" permission_type="flag" interface_group_id="ehdaaPermissions" display_order="40"/>
+  <permission permission_group_id="ehdaa" permission_id="viewEhdaa" permission_type="flag" interface_group_id="ehdaaPermissions" display_order="1"/>
+</permissions>

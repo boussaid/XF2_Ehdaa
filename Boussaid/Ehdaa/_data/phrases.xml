@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<phrases>
+  <phrase title="admin_navigation.ehdaaAdmin" version_id="2010070" version_string="2.1.0"><![CDATA[قائمة الإهداءات]]></phrase>
+  <phrase title="admin_navigation.ehdaaOptions" version_id="2010070" version_string="2.1.0"><![CDATA[إعدادات الإهداءات]]></phrase>
+  <phrase title="admin_navigation.ehdaat" version_id="2010070" version_string="2.1.0"><![CDATA[الإهداءات]]></phrase>
+  <phrase title="admin_permission.Ehdaat" version_id="2010070" version_string="2.1.0"><![CDATA[إدارة الإهداءات]]></phrase>
+  <phrase title="cron_entry.cleanUpEhdaa" version_id="2010070" version_string="2.1.0"><![CDATA[[BM] حذف الإهداءات القديمة]]></phrase>
+  <phrase title="ehdaaAdd" version_id="2010070" version_string="2.1.0"><![CDATA[إضافة إهداء]]></phrase>
+  <phrase title="ehdaaEdit" version_id="2010070" version_string="2.1.0"><![CDATA[تعديل الإهداء]]></phrase>
+  <phrase title="ehdaaFrom" version_id="2010070" version_string="2.1.0"><![CDATA[من]]></phrase>
+  <phrase title="ehdaaText" version_id="2010070" version_string="2.1.0"><![CDATA[محتوى الإهداء]]></phrase>
+  <phrase title="ehdaat" version_id="2010070" version_string="2.1.0"><![CDATA[قائمة الإهداءات]]></phrase>
+  <phrase title="option.ehdaFromMaxLength" version_id="2010080" version_string="2.1.1"><![CDATA[الحد الأقصى لعدد الأحرف في حقل المكان]]></phrase>
+  <phrase title="option.ehdaMessageMaxLength" version_id="2010080" version_string="2.1.1"><![CDATA[الحد الأقصى لعدد الأحرف في رسالة الإهداء]]></phrase>
+  <phrase title="option.ehdaaBranding" version_id="2010070" version_string="2.1.0"><![CDATA[_]]></phrase>
+  <phrase title="option.ehdaaCleanDays" version_id="2010070" version_string="2.1.0"><![CDATA[حذف الإهداءات القديمة]]></phrase>
+  <phrase title="option_explain.ehdaFromMaxLength" version_id="2010080" version_string="2.1.1"><![CDATA[]]></phrase>
+  <phrase title="option_explain.ehdaMessageMaxLength" version_id="2010080" version_string="2.1.1"><![CDATA[]]></phrase>
+  <phrase title="option_explain.ehdaaBranding" version_id="2010070" version_string="2.1.0"><![CDATA[]]></phrase>
+  <phrase title="option_explain.ehdaaCleanDays" version_id="2010070" version_string="2.1.0"><![CDATA[أدخل عدد الأيام التي يتم بعدها حذف الإهداءات الأقدم من قاعدة البيانات.]]></phrase>
+  <phrase title="option_group.ehdaa" version_id="2010070" version_string="2.1.0"><![CDATA[[BM] الإهداءات]]></phrase>
+  <phrase title="option_group_description.ehdaa" version_id="2010070" version_string="2.1.0"><![CDATA[الخيارات الإضافية للتحكم في منتج الإهداءات.]]></phrase>
+  <phrase title="permission.ehdaa_addEhdaa" version_id="2010070" version_string="2.1.0"><![CDATA[السماح بإضافة إهداء]]></phrase>
+  <phrase title="permission.ehdaa_basicText" version_id="2010070" version_string="2.1.0"><![CDATA[السماح بتنسيقات النص اﻷساسية (عريض، مائل، إلخ)]]></phrase>
+  <phrase title="permission.ehdaa_deleteAnyEhdaa" version_id="2010070" version_string="2.1.0"><![CDATA[السماح بحذف أي إهداء]]></phrase>
+  <phrase title="permission.ehdaa_deleteOwnEhdaa" version_id="2010070" version_string="2.1.0"><![CDATA[السماح بحذف إهداءاته]]></phrase>
+  <phrase title="permission.ehdaa_editAnyEhdaa" version_id="2010070" version_string="2.1.0"><![CDATA[السماح بتعديل أي إهداء]]></phrase>
+  <phrase title="permission.ehdaa_editOwnEhdaa" version_id="2010070" version_string="2.1.0"><![CDATA[السماح بتعديل إهداءاته]]></phrase>
+  <phrase title="permission.ehdaa_editOwnEhdaaTimeLimit" version_id="2010070" version_string="2.1.0"><![CDATA[الوقت المسموح به لتعديل/حذف إهداءاته (بالدقائق)]]></phrase>
+  <phrase title="permission.ehdaa_extendedText" version_id="2010070" version_string="2.1.0"><![CDATA[السماح بتنسيقات النص الإضافية (اللون، الخط، الحجم)]]></phrase>
+  <phrase title="permission.ehdaa_maxSmilies" version_id="2010070" version_string="2.1.0"><![CDATA[السماح باستخدام اﻹبتسامات]]></phrase>
+  <phrase title="permission.ehdaa_viewEhdaa" version_id="2010070" version_string="2.1.0"><![CDATA[السماح بمشاهدة الإهداءات]]></phrase>
+  <phrase title="permission_interface.ehdaaModerator" version_id="2010070" version_string="2.1.0"><![CDATA[[BM] تراخيص إدارة الإهداءات]]></phrase>
+  <phrase title="permission_interface.ehdaaPermissions" version_id="2010070" version_string="2.1.0"><![CDATA[[BM] تراخيص الإهداءات]]></phrase>
+  <phrase title="please_enter_valid_ehdaa" version_id="2010070" version_string="2.1.0"><![CDATA[الرجاء إدخال محتوى الإهداء.]]></phrase>
+  <phrase title="please_enter_valid_place" version_id="2010070" version_string="2.1.0"><![CDATA[الرجاء ملء حقل المكان "من".]]></phrase>
+  <phrase title="your_ehdaa_has_been_posted" version_id="2010070" version_string="2.1.0"><![CDATA[تم إضافة الإهداء الخاص بك.]]></phrase>
+</phrases>

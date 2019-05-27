@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<options>
+  <option option_id="ehdaFromMaxLength" edit_format="spinbox" data_type="unsigned_integer">
+    <default_value>10</default_value>
+    <edit_format_params>min=5
+max=20</edit_format_params>
+    <relation group_id="ehdaa" display_order="10"/>
+  </option>
+  <option option_id="ehdaMessageMaxLength" edit_format="spinbox" data_type="unsigned_integer">
+    <default_value>50</default_value>
+    <edit_format_params>min=10
+max=100
+step=10</edit_format_params>
+    <relation group_id="ehdaa" display_order="20"/>
+  </option>
+  <option option_id="ehdaaBranding" edit_format="callback" data_type="string">
+    <default_value></default_value>
+    <edit_format_params>Boussaid\Ehdaa\PageContainer::devBranding</edit_format_params>
+    <relation group_id="ehdaa" display_order="99999"/>
+  </option>
+  <option option_id="ehdaaCleanDays" edit_format="spinbox" data_type="unsigned_integer">
+    <default_value>10</default_value>
+    <edit_format_params>min=0
+max=10
+units={{ phrase('units_days') }}</edit_format_params>
+    <relation group_id="ehdaa" display_order="100"/>
+  </option>
+</options>
