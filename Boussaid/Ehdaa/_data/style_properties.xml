@@ -1,2 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<style_properties/>
+<style_properties>
+  <style_property property_name="bm_tempSelect" group_name="ehdaaSettings" title="اختر نمط العرض" description="يمكنك عرض الإهداءات بطريقتين مختلفتين، حدد من هنا ما يناسبك." property_type="value" value_type="radio" value_group="template" display_order="1">
+    <value_parameters>ticker={{ phrase('tickerehdaa') }}
+block={{ phrase('blockehdaa') }}</value_parameters>
+    <value>"ticker"</value>
+  </style_property>
+  <style_property property_name="bm_ticker_settings" group_name="ehdaaSettings" title="خيارات مخصصة للشريط المتحرك" property_type="value" value_type="boolean" value_group="settings" display_order="10">
+    <value>1</value>
+  </style_property>
+  <style_property property_name="bm_tri_bc" group_name="ehdaaSettings" title="لون نمط الشريط" description="اختيار لون يطغى على خلفية العنوان و الحدود المحيطة بإطار الإهداءات" property_type="value" value_type="color" depends_on="bm_ticker_settings" value_group="settings" display_order="11">
+    <value>""</value>
+  </style_property>
+  <style_property property_name="bm_tri_br" group_name="ehdaaSettings" title="انحناء الحدود" property_type="value" value_type="number" depends_on="bm_ticker_settings" value_group="settings" display_order="13">
+    <value>"20"</value>
+  </style_property>
+  <style_property property_name="bm_tri_bw" group_name="ehdaaSettings" title="عرض الحدود" property_type="value" value_type="number" depends_on="bm_ticker_settings" value_group="settings" display_order="12">
+    <value>"1"</value>
+  </style_property>
+  <style_property property_name="bm_tri_css" group_name="ehdaaSettings" title="عنوان الشريط" description="تنسيق نمط عنوان الشريط" property_type="css" display_order="30" css_components="text,background,padding,extra">
+    <value>{
+    "font-size": "@xf-fontSizeLarge",
+    "color": "@xf-linkColor",
+    "font-weight": "@xf-fontWeightHeavy",
+    "background-color": "fade(@xf-pageBg, 50%)",
+    "padding-top": "0",
+    "padding-right": "15px",
+    "padding-bottom": "0",
+    "padding-left": "15px",
+    "extra": "background: linear-gradient(0deg, @xf-majorHeadingBg, mix(@xf-majorHeadingBg, @xf-contentBg, 50%));"
+}</value>
+  </style_property>
+  <style_property property_name="bm_tri_effects" group_name="ehdaaSettings" title="مؤثرات حركة الشريط" property_type="value" value_type="select" value_group="effects" display_order="20">
+    <value_parameters>slide-right={{ phrase('slideright') }}
+slide-left={{ phrase('slideleft') }}
+typography={{ phrase('typography') }}
+fade={{ phrase('fade') }}
+slide-down={{ phrase('slidedown') }}
+slide-up={{ phrase('slideup') }}
+scroll={{ phrase('scroll') }}
+default={{ phrase('default') }}</value_parameters>
+    <value>"slide-down"</value>
+  </style_property>
+  <style_property property_name="bm_tri_icon" group_name="ehdaaSettings" title="إيقونة FA للشريط" description="اكتب اسم ايقونة Font Awesome ليتم عرضها مع عنوان الشريط" property_type="value" value_type="string" value_group="settings" display_order="14">
+    <value>"gift"</value>
+  </style_property>
+  <style_property property_name="bm_tri_mouse" group_name="ehdaaSettings" title="التوقف عند تمرير الفأرة" property_type="value" value_type="radio" value_group="effects" display_order="23">
+    <value_parameters>true={{ phrase('yes') }}
+false={{ phrase('no') }}</value_parameters>
+    <value>"true"</value>
+  </style_property>
+  <style_property property_name="bm_tri_speed" group_name="ehdaaSettings" title="سرعة حركة الشريط المتحرك" property_type="value" value_type="number" value_group="effects" display_order="22">
+    <value_parameters>step=0.1
+max=5
+min=0.5</value_parameters>
+    <value>"1.8"</value>
+  </style_property>
+  <style_property property_name="bm_tri_time" group_name="ehdaaSettings" title="سرعة الانتقال" property_type="value" value_type="number" value_group="effects" display_order="21">
+    <value_parameters>step=1000
+max=20000
+min=1000</value_parameters>
+    <value>"5000"</value>
+  </style_property>
+</style_properties>

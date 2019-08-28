@@ -4,12 +4,14 @@
   <phrase title="admin_navigation.ehdaaOptions" version_id="2010070" version_string="2.1.0"><![CDATA[إعدادات الإهداءات]]></phrase>
   <phrase title="admin_navigation.ehdaat" version_id="2010070" version_string="2.1.0"><![CDATA[الإهداءات]]></phrase>
   <phrase title="admin_permission.Ehdaat" version_id="2010070" version_string="2.1.0"><![CDATA[إدارة الإهداءات]]></phrase>
+  <phrase title="blockehdaa" version_id="2010080" version_string="2.1.1"><![CDATA[بلوكات متحركة]]></phrase>
   <phrase title="cron_entry.cleanUpEhdaa" version_id="2010070" version_string="2.1.0"><![CDATA[[BM] حذف الإهداءات القديمة]]></phrase>
   <phrase title="ehdaaAdd" version_id="2010070" version_string="2.1.0"><![CDATA[إضافة إهداء]]></phrase>
   <phrase title="ehdaaEdit" version_id="2010070" version_string="2.1.0"><![CDATA[تعديل الإهداء]]></phrase>
   <phrase title="ehdaaFrom" version_id="2010070" version_string="2.1.0"><![CDATA[من]]></phrase>
   <phrase title="ehdaaText" version_id="2010070" version_string="2.1.0"><![CDATA[محتوى الإهداء]]></phrase>
   <phrase title="ehdaat" version_id="2010070" version_string="2.1.0"><![CDATA[قائمة الإهداءات]]></phrase>
+  <phrase title="fade" version_id="2010080" version_string="2.1.1"><![CDATA[تلاشي]]></phrase>
   <phrase title="option.ehdaFromMaxLength" version_id="2010080" version_string="2.1.1"><![CDATA[الحد الأقصى لعدد الأحرف في حقل المكان]]></phrase>
   <phrase title="option.ehdaMessageMaxLength" version_id="2010080" version_string="2.1.1"><![CDATA[الحد الأقصى لعدد الأحرف في رسالة الإهداء]]></phrase>
   <phrase title="option.ehdaaBranding" version_id="2010070" version_string="2.1.0"><![CDATA[_]]></phrase>
@@ -34,5 +36,36 @@
   <phrase title="permission_interface.ehdaaPermissions" version_id="2010070" version_string="2.1.0"><![CDATA[[BM] تراخيص الإهداءات]]></phrase>
   <phrase title="please_enter_valid_ehdaa" version_id="2010070" version_string="2.1.0"><![CDATA[الرجاء إدخال محتوى الإهداء.]]></phrase>
   <phrase title="please_enter_valid_place" version_id="2010070" version_string="2.1.0"><![CDATA[الرجاء ملء حقل المكان "من".]]></phrase>
+  <phrase title="scroll" version_id="2010080" version_string="2.1.1"><![CDATA[شريط متحرك]]></phrase>
+  <phrase title="slidedown" version_id="2010080" version_string="2.1.1"><![CDATA[تحريك للأسفل]]></phrase>
+  <phrase title="slideleft" version_id="2010080" version_string="2.1.1"><![CDATA[تحريك لليسار]]></phrase>
+  <phrase title="slideright" version_id="2010080" version_string="2.1.1"><![CDATA[تحريك لليمين]]></phrase>
+  <phrase title="slideup" version_id="2010080" version_string="2.1.1"><![CDATA[تحريك للأعلى]]></phrase>
+  <phrase title="style_prop.bm_tempSelect" version_id="2010080" version_string="2.1.1"><![CDATA[اختر نمط العرض]]></phrase>
+  <phrase title="style_prop.bm_ticker_settings" version_id="2010080" version_string="2.1.1"><![CDATA[خيارات مخصصة للشريط المتحرك]]></phrase>
+  <phrase title="style_prop.bm_tri_bc" version_id="2010080" version_string="2.1.1"><![CDATA[لون نمط الشريط]]></phrase>
+  <phrase title="style_prop.bm_tri_br" version_id="2010080" version_string="2.1.1"><![CDATA[انحناء الحدود]]></phrase>
+  <phrase title="style_prop.bm_tri_bw" version_id="2010080" version_string="2.1.1"><![CDATA[عرض الحدود]]></phrase>
+  <phrase title="style_prop.bm_tri_css" version_id="2010080" version_string="2.1.1"><![CDATA[عنوان الشريط]]></phrase>
+  <phrase title="style_prop.bm_tri_effects" version_id="2010080" version_string="2.1.1"><![CDATA[مؤثرات حركة الشريط]]></phrase>
+  <phrase title="style_prop.bm_tri_icon" version_id="2010080" version_string="2.1.1"><![CDATA[إيقونة FA للشريط]]></phrase>
+  <phrase title="style_prop.bm_tri_mouse" version_id="2010080" version_string="2.1.1"><![CDATA[التوقف عند تمرير الفأرة]]></phrase>
+  <phrase title="style_prop.bm_tri_speed" version_id="2010080" version_string="2.1.1"><![CDATA[سرعة حركة الشريط المتحرك]]></phrase>
+  <phrase title="style_prop.bm_tri_time" version_id="2010080" version_string="2.1.1"><![CDATA[سرعة الانتقال]]></phrase>
+  <phrase title="style_prop_desc.bm_tempSelect" version_id="2010080" version_string="2.1.1"><![CDATA[يمكنك عرض الإهداءات بطريقتين مختلفتين، حدد من هنا ما يناسبك.]]></phrase>
+  <phrase title="style_prop_desc.bm_ticker_settings" version_id="2010080" version_string="2.1.1"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.bm_tri_bc" version_id="2010080" version_string="2.1.1"><![CDATA[اختيار لون يطغى على خلفية العنوان و الحدود المحيطة بإطار الإهداءات]]></phrase>
+  <phrase title="style_prop_desc.bm_tri_br" version_id="2010080" version_string="2.1.1"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.bm_tri_bw" version_id="2010080" version_string="2.1.1"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.bm_tri_css" version_id="2010080" version_string="2.1.1"><![CDATA[تنسيق نمط عنوان الشريط]]></phrase>
+  <phrase title="style_prop_desc.bm_tri_effects" version_id="2010080" version_string="2.1.1"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.bm_tri_icon" version_id="2010080" version_string="2.1.1"><![CDATA[اكتب اسم ايقونة Font Awesome ليتم عرضها مع عنوان الشريط]]></phrase>
+  <phrase title="style_prop_desc.bm_tri_mouse" version_id="2010080" version_string="2.1.1"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.bm_tri_speed" version_id="2010080" version_string="2.1.1"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.bm_tri_time" version_id="2010080" version_string="2.1.1"><![CDATA[]]></phrase>
+  <phrase title="style_prop_group.ehdaaSettings" version_id="2010080" version_string="2.1.1"><![CDATA[خيارات الإهداءات]]></phrase>
+  <phrase title="style_prop_group_desc.ehdaaSettings" version_id="2010080" version_string="2.1.1"><![CDATA[تخصيص مظهر الاهداءات و كيفية عرضها]]></phrase>
+  <phrase title="tickerehdaa" version_id="2010080" version_string="2.1.1"><![CDATA[شريط متحرك متعدد المؤثرات]]></phrase>
+  <phrase title="typography" version_id="2010080" version_string="2.1.1"><![CDATA[تأثير الطباعة]]></phrase>
   <phrase title="your_ehdaa_has_been_posted" version_id="2010070" version_string="2.1.0"><![CDATA[تم إضافة الإهداء الخاص بك.]]></phrase>
 </phrases>

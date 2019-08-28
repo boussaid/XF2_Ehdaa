@@ -16,7 +16,7 @@ class Ehdaat extends Entity
 		$options = \XF::options();
 		$structure->table = 'xf_bm_ehdaa';
 		$structure->shortName = 'Boussaid\Ehdaa\XF:Ehdaat';
-		//$structure->contentType = 'post';
+		$structure->contentType = 'ehdaa';
 		$structure->primaryKey = 'ehdaa_id';
 		$structure->columns = [
 			'ehdaa_id' => ['type' => self::UINT, 'autoIncrement' => true, 'nullable' => true],

@@ -70,7 +70,7 @@
 <xf:else />
 	<div class="blockMessage">{{ phrase('no_items_have_been_created_yet') }}</div>
 </xf:if>]]></template>
-  <template type="public" title="bm_ehdaa.less" version_id="2010070" version_string="2.1.0"><![CDATA[.ehdaCtrLeft 
+  <template type="public" title="bm_ehdaa.less" version_id="2010080" version_string="2.1.1"><![CDATA[.ehdaCtrLeft 
 {
 	text-align: right;
 	max-width: 150px;
@@ -138,11 +138,6 @@
 	align-items: center;
 }
 
-.ehdaa .contentRow:hover
-{
-	cursor: pointer;
-}
-
 .ehdaa .contentRow .ehdaaFrom
 {
 	color: #27ae60;
@@ -163,8 +158,112 @@
 .button.button--icon--ehdaa > .button-text::before, 
 a.button.button--icon--ehdaa > .button-text::before
 {
-	content: "@{fa-var-gift}";
+	content: '@{fa-var-gift}';
 }]]></template>
+  <template type="public" title="bm_ehdaa_a" version_id="2010080" version_string="2.1.1"><![CDATA[<xf:if is="{$ehdaat} is not empty && $xf.visitor->hasPermission('ehdaa', 'viewEhdaa')">
+	<xf:css src="notices.less" />
+	<ul class="notices notices--block notices" data-xf-init="notices" data-type="block" data-scroll-interval="6">				
+	<li class="notice js-notice notice--primary">		
+		<div class="notice-content">
+				<table class="dataList-table" cellspacing="1" cellpadding="1" border="0" align="center" style="margin: -8px -8px -8px 0px;">
+	<tbody>
+		<tr>
+			<td class="lama1" style="padding: 9px;background: #cbdce8;font-size: 14px;"> التجارة </td><td class="lama2" style="font-size: 14px;">
+				
+								<marquee direction="right" scrollamount="3" scrolldelay="80" onmouseout="this.start()" onmouseover="this.stop()">
+									<xf:foreach loop="{$ehdaat}" value="$ehdaa">
+									<xf:avatar user="$ehdaa.User" size="xxs" defaultname="{$fallbackName}" itemprop="image" />
+									<xf:if is="$ehdaa.ehdaa_from">
+										<span class="ehdaaFrom">{{ phrase('ehdaaFrom') }} {$ehdaa.ehdaa_from}:</span>
+									<xf:else />
+										<span class="ehdaaFrom">{$ehdaa.User.username}: </span>
+									</xf:if>
+							{$ehdaa.ehdaa_message} 
+							<xf:date time="$ehdaa.ehdaa_date" class="contentRow-minor" />
+							
+						☆ </xf:foreach></marquee>
+					
+			</td>
+		</tr>   
+	</tbody>
+</table>                              
+			</div>
+		</li>
+	</ul>	
+</xf:if>
+	<!--
+<xf:if is="{$ehdaat} is not empty && $xf.visitor->hasPermission('ehdaa', 'viewEhdaa')">	
+	<xf:js src="ehdaa/jquery.webticker.min.js" />
+	<div class="p-body-header">
+	<ul id="right-to-left-webticker">
+		<xf:foreach loop="{$ehdaat}" value="$ehdaa">
+			
+			<li data-update="item1">
+				<xf:avatar user="$ehdaa.User" size="xxs" defaultname="{$fallbackName}" itemprop="image" />
+							<xf:if is="$ehdaa.ehdaa_from">
+								<span class="ehdaaFrom">{{ phrase('ehdaaFrom') }} {$ehdaa.ehdaa_from}:</span>
+							<xf:else />
+								<span class="ehdaaFrom">{$ehdaa.User.username}: </span>
+							</xf:if>
+							{{ $ehdaa.ehdaa_message ? bb_code($ehdaa.ehdaa_message, 'ehdaa', $ehdaa.User) : '&nbsp;' }} 
+							<xf:date time="$ehdaa.ehdaa_date" class="contentRow-minor" />
+							<xf:if contentcheck="true">
+							<span class="ehdaCtrLeft">
+								<xf:contentcheck>
+							<xf:if is="$ehdaa.canEdit()">
+								<a href="{{ link('ehdaa/edit', $ehdaa) }}" data-xf-init="tooltip" data-original-title="{{  phrase('edit')|for_attr }}" data-xf-click="overlay" data-cache="false">&nbsp;<xf:fa icon="fa-comment-edit" /></a>
+							</xf:if>
+							<xf:if is="$ehdaa.canDelete()">
+								<a href="{{ link('ehdaa/delete', $ehdaa) }}" data-xf-init="tooltip" data-original-title="{{  phrase('delete')|for_attr }}" data-xf-click="overlay" data-cache="false">&nbsp;<xf:fa icon="fa-trash" /></a>
+							</xf:if>
+								</xf:contentcheck>
+							</span>
+						</xf:if>
+			
+			</li>   
+		</xf:foreach>
+			</ul></div>
+<xf:js>
+	$("#right-to-left-webticker").webTicker({
+    height:'75px', 
+    direction: 'right'
+});	
+</xf:js>
+	
+
+	<div class="carousel ehdaa">
+		<ul class="carousel-body carousel-body--show1" data-xf-init="carousel">
+			<xf:foreach loop="{$ehdaat}" value="$ehdaa">
+				<li>
+					<div class="carousel-item"><xf:fa icon="fa-gift" />
+						<div class="contentRow">
+							<xf:avatar user="$ehdaa.User" size="xxs" defaultname="{$fallbackName}" itemprop="image" />
+							<xf:if is="$ehdaa.ehdaa_from">
+								<span class="ehdaaFrom">{{ phrase('ehdaaFrom') }} {$ehdaa.ehdaa_from}:</span>
+							<xf:else />
+								<span class="ehdaaFrom">{$ehdaa.User.username}: </span>
+							</xf:if>
+							{{ $ehdaa.ehdaa_message ? bb_code($ehdaa.ehdaa_message, 'ehdaa', $ehdaa.User) : '&nbsp;' }} 
+							<xf:date time="$ehdaa.ehdaa_date" class="contentRow-minor" />
+							<xf:if contentcheck="true">
+							<span class="ehdaCtrLeft">
+								<xf:contentcheck>
+							<xf:if is="$ehdaa.canEdit()">
+								<a href="{{ link('ehdaa/edit', $ehdaa) }}" data-xf-init="tooltip" data-original-title="{{  phrase('edit')|for_attr }}" data-xf-click="overlay" data-cache="false">&nbsp;<xf:fa icon="fa-comment-edit" /></a>
+							</xf:if>
+							<xf:if is="$ehdaa.canDelete()">
+								<a href="{{ link('ehdaa/delete', $ehdaa) }}" data-xf-init="tooltip" data-original-title="{{  phrase('delete')|for_attr }}" data-xf-click="overlay" data-cache="false">&nbsp;<xf:fa icon="fa-trash" /></a>
+							</xf:if>
+								</xf:contentcheck>
+							</span>
+						</xf:if>
+						</div>
+					</div>
+				</li>
+			</xf:foreach>
+		</ul>
+	</div> -->
+</xf:if>]]></template>
   <template type="public" title="bm_ehdaa_add" version_id="2010080" version_string="2.1.1"><![CDATA[<xf:if is="{{ $xf.visitor->hasPermission('ehdaa', 'viewEhdaa') }} && {{ $xf.visitor->hasPermission('ehdaa', 'addEhdaa') }}">	
 	<xf:title>{{ phrase('ehdaaAdd:') }}</xf:title>
 
@@ -209,12 +308,12 @@ a.button.button--icon--ehdaa > .button-text::before
 							<xf:if contentcheck="true">
 							<span class="ehdaCtrLeft">
 								<xf:contentcheck>
-							<xf:if is="$ehdaa.canEdit()">
-								<a href="{{ link('ehdaa/edit', $ehdaa) }}" data-xf-init="tooltip" data-original-title="{{  phrase('edit')|for_attr }}" data-xf-click="overlay" data-cache="false">&nbsp;<xf:fa icon="fa-comment-edit" /></a>
-							</xf:if>
-							<xf:if is="$ehdaa.canDelete()">
-								<a href="{{ link('ehdaa/delete', $ehdaa) }}" data-xf-init="tooltip" data-original-title="{{  phrase('delete')|for_attr }}" data-xf-click="overlay" data-cache="false">&nbsp;<xf:fa icon="fa-trash" /></a>
-							</xf:if>
+									<xf:if is="$ehdaa.canEdit()">
+										<a href="{{ link('ehdaa/edit', $ehdaa) }}" data-xf-init="tooltip" data-original-title="{{  phrase('edit')|for_attr }}" data-xf-click="overlay" data-cache="false">&nbsp;<xf:fa icon="fa-comment-edit" /></a>
+									</xf:if>
+									<xf:if is="$ehdaa.canDelete()">
+										<a href="{{ link('ehdaa/delete', $ehdaa) }}" data-xf-init="tooltip" data-original-title="{{  phrase('delete')|for_attr }}" data-xf-click="overlay" data-cache="false">&nbsp;<xf:fa icon="fa-trash" /></a>
+									</xf:if>
 								</xf:contentcheck>
 							</span>
 						</xf:if>
@@ -225,6 +324,432 @@ a.button.button--icon--ehdaa > .button-text::before
 		</ul>
 	</div>
 </xf:if>]]></template>
+  <template type="public" title="bm_ehdaa_ticker" version_id="2010080" version_string="2.1.1"><![CDATA[<xf:if is="{$ehdaat} is not empty && $xf.visitor->hasPermission('ehdaa', 'viewEhdaa')">	
+	
+<xf:js src="ticker/breaking-news-ticker.min.js" />
+<xf:css src="bm_ehdaa_ticker.less" />
+<xf:css src="bm_ehdaa.less" />
+
+<section class="ehdaa">			
+	<div class="ehdaa-box">
+		<div class="breaking-news-ticker" id="ehdaaTicker">
+			<div class="bn-label"><xf:fa icon="fa-{{ property('bm_tri_icon') }}" /> {{ phrase('admin_navigation.ehdaat') }}</div>
+			<div class="bn-news">
+			   <ul>
+			    	<xf:foreach loop="{$ehdaat}" value="$ehdaa">
+						<li>
+						<div class="contentRow">
+							<xf:avatar user="$ehdaa.User" size="xxs" defaultname="{$fallbackName}" itemprop="image" />
+							<xf:if is="$ehdaa.ehdaa_from">
+								<span class="ehdaaFrom bn-prefix">{{ phrase('ehdaaFrom') }} {$ehdaa.ehdaa_from}:</span>
+							<xf:else />
+								<span class="ehdaaFrom bn-prefix">{$ehdaa.User.username}: </span>
+							</xf:if>
+							{{ $ehdaa.ehdaa_message ? bb_code($ehdaa.ehdaa_message, 'ehdaa', $ehdaa.User) : '&nbsp;' }}
+							<xf:date time="$ehdaa.ehdaa_date" class="contentRow-minor" />
+							<xf:if contentcheck="true">
+								<div class="bn-controls">
+									<xf:contentcheck>
+										<xf:if is="$ehdaa.canEdit()">
+											<button><span><a href="{{ link('ehdaa/edit', $ehdaa) }}" data-xf-init="tooltip" data-original-title="{{  phrase('edit')|for_attr }}" data-xf-click="overlay" data-cache="false"><xf:fa icon="fa-comment-edit" /></a></span></button>
+										</xf:if>
+										<xf:if is="$ehdaa.canDelete()">
+											<button><span><a href="{{ link('ehdaa/delete', $ehdaa) }}" data-xf-init="tooltip" data-original-title="{{  phrase('delete')|for_attr }}" data-xf-click="overlay" data-cache="false"><xf:fa icon="fa-trash" /></a></span></button>
+										</xf:if>
+									</xf:contentcheck>
+								</div>
+							</xf:if>
+						</div>
+					</li>
+				</xf:foreach>
+			</ul>
+		</div>
+			<div class="bn-controls">
+				<button><span class="bn-arrow bn-prev"></span></button>
+				<button><span class="bn-action"></span></button>
+				<button><span class="bn-arrow bn-next"></span></button>
+			</div>
+		</div>				
+	</div>
+</section>				
+	
+<xf:js>
+	jQuery(document).ready(function($){
+		$('#ehdaaTicker').breakingNews({
+			effect: '{{ property('bm_tri_effects') }}',
+			radius: {{ property('bm_tri_br') }},
+			borderWidth: {{ property('bm_tri_bw') }},
+			themeColor: '{{ property('bm_tri_bc') }}',
+			scrollSpeed: {{ property('bm_tri_speed') }},
+			delayTimer: {{ property('bm_tri_time') }},
+			stopOnHover: {{ property('bm_tri_mouse') }},
+			direction: 'rtl'
+		});
+	});
+</xf:js>
+	
+</xf:if>]]></template>
+  <template type="public" title="bm_ehdaa_ticker.less" version_id="2010080" version_string="2.1.1"><![CDATA[.ehdaa-box
+{
+	margin: 20px 0;
+}
+.breaking-news-ticker
+{
+	display: block;
+	width: 100%;
+	border: solid 1px @xf-borderColorLight;
+	background: @xf-contentBg;
+	height: 40px;
+	box-sizing: border-box;
+	position: relative;
+	line-height: 40px;
+	overflow: hidden;
+	text-align: -webkit-auto;
+	font-size: 14px;	
+}
+
+.breaking-news-ticker.bn-fixed-top{
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+}
+.breaking-news-ticker.bn-fixed-bottom{
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+/*title styles start**************/
+.tickerRow-main {
+    flex: 1;
+    min-width: 0;
+    vertical-align: top;
+}
+.tickerRow-extra{
+	float: right;
+}
+.tickerTime {
+    display: inline-block;
+    padding-right: 10px;
+    font-size: 13px;
+    position: relative;
+    z-index: 1;
+}
+.tickerRow-figure {
+    display: flex;
+    vertical-align: top;
+    white-space: nowrap;
+    word-wrap: normal;
+    text-align: center;
+    margin-left: 5px;
+}
+.bn-label
+{
+	right: 0;
+	top: 0;
+	bottom: 0;
+	height: 100%;
+	position: absolute;
+	.xf-bm_tri_css();
+	text-align: center;
+	z-index: 3;
+}
+/*title styles end****************/
+
+/*news item style start **********/
+.bn-news
+{
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	height: 100%;
+	right: 0;
+	overflow: hidden;
+	margin-left: 5px;
+}
+.bn-news ul
+{
+	display: block;
+	height: 100%;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	position: absolute;
+	
+	> li {
+		white-space: nowrap;
+		overflow:hidden !important;
+		text-overflow: ellipsis;
+		text-decoration: none;
+		-webkit-transition: color .2s linear;
+		-moz-transition: color .2s linear;
+		-o-transition: color .2s linear;
+		transition: color .2s linear;
+		position: absolute;
+		width: 100%;
+		display: none;
+	}		
+}
+ 
+
+.bn-loader-text{
+  padding: 0 10px;
+}
+.bn-seperator{
+  display: inline-block;
+  float: right;
+  margin-left: 15px;
+  width: 30px;
+  height: 40px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.bn-seperator.bn-news-dot
+{
+	margin-left: 0;
+	
+	&:after
+	{
+		content: '';
+		position: absolute;
+		width: 8px;
+		height: 8px;
+		background: #333;
+		border-radius: 50%;
+		top: 50%;
+		margin-top: -4px;
+		right: 50%;
+		margin-right: -4px;
+	}
+}
+
+.bn-prefix
+{
+	color: #d65d7a;
+	margin-left: 15px;
+	padding-right: 10px;
+}
+.bn-positive{
+  color: #0b8457;
+  font-weight: bold;
+}
+.bn-negative{
+  color: #dc2f2f;
+  font-weight: bold;
+}
+/*news item style end ************/
+
+/*controls style start ***********/
+.bn-controls
+{
+	width: auto;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	height: 100%;
+	position: absolute;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	
+	& button
+	{
+		width: 30px;
+		float: right;
+		height: 100%;
+		cursor: pointer;
+		border:none;
+		border-right: solid 1px @xf-borderColorHeavy;
+		text-align: center;
+		background-color: @xf-contentAltBg;
+		background: linear-gradient(0deg, @xf-majorHeadingBg, mix(@xf-majorHeadingBg, @xf-contentBg, 50%));
+		outline: none;
+		text-align: center;
+
+		&:hover
+		{
+			background: @xf-contentBg;
+			text-decoration: none;
+		}
+		
+	}
+}
+
+.bn-arrow 
+{
+	margin: 0;
+	display: inline-block;
+	height: 8px;
+	position: relative;
+	width: 8px;
+	top: -2px;
+	
+	&:after
+	{
+		border-bottom-style: solid;
+		border-bottom-width: 2px;
+		border-left-style: solid;
+		border-left-width: 2px;
+		content: '';
+		display: inline-block;
+		height: 8px;
+		right: 0;
+		position: absolute;
+		top: 0;
+		width: 8px;
+		border-color: @xf-buttonBg;
+	}
+	
+	&:before
+	{
+		background-color: @xf-buttonBg;		
+	}
+	
+	&.bn-next
+	{
+		-moz-transform: rotate(315deg);
+		-ms-transform: rotate(315deg);
+		-webkit-transform: rotate(315deg);
+		transform: rotate(315deg);
+		right:-3px;
+	}
+	
+	&.bn-prev
+	{
+		-moz-transform: rotate(135deg);
+		-ms-transform: rotate(135deg);
+		-webkit-transform: rotate(135deg);
+		transform: rotate(135deg);
+		right: 3px;
+	}
+}
+
+.bn-play
+{
+	position: relative;
+	background: @xf-buttonBg;
+	width: 0;
+	height: 12px;
+	display: inline-block;
+	margin-right: -5px;
+	
+	&:after
+	{
+		right: 100%;
+		top: 50%;
+		border: solid transparent;
+		content: " ";
+		height: 0;
+		width: 0;
+		position: absolute;
+		pointer-events: none;
+		border-right-color: @xf-buttonBg;
+		border-width: 8px;
+		margin-top: -8px;
+	}
+}
+
+.bn-pause
+{
+	position: relative;
+	width: 0;
+	height: 14px;
+	display: inline-block;
+	top: 1px;
+	right:-1px;
+	
+	&:before
+	{
+		position: absolute;
+		content: "";
+		width: 2px;
+		height: 100%;
+		right: 3px;
+		background-color: @xf-buttonBg;
+	}
+	
+	&:after
+	{
+		position: absolute;
+		content: "";
+		width: 2px;
+		height: 100%;
+		right: -3px;
+		background-color: @xf-buttonBg;
+	}
+}
+
+/*controls style end *************/
+
+.bn-direction-rtl
+{
+	direction: rtl;
+	
+	.bn-label
+	{
+		right: auto;
+		left: 0;
+	}
+	
+	.bn-controls
+	{
+		left: auto;
+		right: 0;
+		text-align: center;
+	}
+	
+	.bn-seperator
+	{
+		margin-right: 15px;
+		margin-left: 0;
+		float: left;
+	}
+	
+	.bn-prefix
+	{
+		margin-right: 15px;
+		margin-left: 0;
+		padding-right: 0;
+		padding-left: 10px;
+	}
+	
+	.bn-controls button
+	{
+		border-right: none;
+		border-left: solid 1px @xf-borderColorLight;
+	}
+}
+ 
+
+.bn-effect-scroll .bn-news ul
+{
+	display: block;
+	width: 100%;
+	position: relative;
+	
+	> li
+	{
+		display: list-item;
+		float: right;
+		position: relative;
+		width: auto;
+	}
+}
+
+.bn-effect-scroll.bn-direction-rtl .bn-news ul li
+{
+	float: left;
+}]]></template>
   <template type="public" title="ehdaa_edit" version_id="2010070" version_string="2.1.0"><![CDATA[<xf:if is="$ehdaa.isInsert()">
 	<xf:title>{{ phrase('ehdaaAdd:') }}</xf:title>
 <xf:else />
